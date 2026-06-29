@@ -1,6 +1,15 @@
 pub fn censor_vowels(s: &mut String) {
-    let _ = s;
-    todo!("implement censor_vowels")
+    let mut result = String::new();
+
+    for ch in s.chars() {
+        match ch {
+            'a' | 'e' | 'i' | 'o' | 'u'
+            | 'A' | 'E' | 'I' | 'O' | 'U' => result.push('*'),
+            _ => result.push(ch),
+        }
+    }
+
+    *s = result;
 }
 
 #[cfg(test)]
